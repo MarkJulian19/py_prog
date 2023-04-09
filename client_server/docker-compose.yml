@@ -1,0 +1,13 @@
+version: "3"
+services:
+  server:
+    image: markjulian19/client_server_server
+    command: python3 asvk_server2.py
+    ports:
+        - 7777:7777
+  client:
+    image: markjulian19/client_server_client
+    command: python3 asvk_client2.py
+    network_mode: host
+    depends_on:
+      -  server
